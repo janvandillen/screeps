@@ -22,6 +22,7 @@ const roleBuilder = {
             } else if (extensions.length){
                 if (creep.transfer(extensions[0]) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(extensions[0], { visualizePathStyle: { stroke: '#ffffff' } });
+                    creep.say('Hi');
                 }
             }
 
