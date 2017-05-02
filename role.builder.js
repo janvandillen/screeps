@@ -20,12 +20,10 @@ const roleBuilder = {
                     creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
                 }
             } else if (extensions.length){
-                if (creep.transfer(targets[0]) === ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
+                if (creep.transfer(extensions[0]) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(extensions[0], { visualizePathStyle: { stroke: '#ffffff' } });
                 }
             }
-
-            creep.say(extensions.length);
 
         }
         else {
