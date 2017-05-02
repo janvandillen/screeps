@@ -24,6 +24,7 @@ const roleBuilder = {
                     creep.moveTo(extensions[0], { visualizePathStyle: { stroke: '#ffffff' } });
                     creep.say('Hi');
                 }
+                creep.say('Ho');
             }
 
         }
