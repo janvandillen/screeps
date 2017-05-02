@@ -1,4 +1,4 @@
-var roleBuilder = {
+const roleBuilder = {
 
     /** @param {Creep} creep **/
     run: function (creep) {
@@ -13,19 +13,27 @@ var roleBuilder = {
         }
 
         if (creep.memory.building) {
-            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            const targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            const extensions = creep.room.find(FIND_MY_STRUCTURES, { filter: {structureType: STRUCTURE_EXTENSION}});
             if (targets.length) {
                 if (creep.build(targets[0]) === ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
                 }
+            } else if (extensions.length){
+                if (creep.transfer(targets[0]) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
+                }
             }
+
         }
         else {
-            var sources = creep.room.find(FIND_SOURCES);
+            let sources = creep.room.find(FIND_SOURCES);
             if (creep.harvest(sources[1]) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
+
+        //creep.moveTo(creep.memory.myTarget,  {visualizePathStyle: {stroke: '#ffaa00'}})
     }
 };
 
