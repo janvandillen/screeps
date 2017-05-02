@@ -17,7 +17,7 @@ module.exports.loop = function () {
         }
     }
 
-    if (Game.spawns['Spawn1'].energy > 200 && Game.creeps.length < 40) {
+    if (Game.spawns['Spawn1'].energy > 200 && harvesters + upgraders + builders < 40) {
         var myrole;
         if (harvesters.length <= 14) {
             myrole = "harvester";
