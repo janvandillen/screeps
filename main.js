@@ -17,9 +17,9 @@ module.exports.loop = function () {
 
     if (Game.spawns['Spawn1'].energy > 200 && harvesters.length + upgraders.length + builders.length < 40) {
         var myrole;
-        if (harvesters.length <= 14) {
+        if (harvesters.length < 14) {
             myrole = "harvester";
-        } else if (upgraders.length <= 14) {
+        } else if (upgraders.length < 14) {
             myrole = "upgrader";
         } else {
             myrole = 'builder'
