@@ -10,6 +10,12 @@ module.exports.loop = function () {
         return creep.memory.role === 'builder';
     });
 
+    for (var name in Memory.creeps) {
+        if (!Game.creeps[name]) {
+            delete Memory.creeps[name];
+            console.log('Clearing non-existing creep memory:', name)
+        }
+    }
 
     if (Game.spawns['Spawn1'].energy > 200 && Game.creeps.length < 40) {
         var myrole;
