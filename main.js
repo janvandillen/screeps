@@ -6,9 +6,7 @@ module.exports.loop = function () {
 
     var harvesters = _.filter(Game.creeps, function(creep){return creep.memory.role === 'harvester';});
     var upgraders = _.filter(Game.creeps, function(creep){return creep.memory.role === 'upgrader';});
-    var builders = _.filter(Game.creeps, function (creep) {
-        return creep.memory.role === 'builder';
-    });
+    var builders = _.filter(Game.creeps, function (creep){return creep.memory.role === 'builder';});
 
     for (var name in Memory.creeps) {
         if (!Game.creeps[name]) {
@@ -17,7 +15,7 @@ module.exports.loop = function () {
         }
     }
 
-    if (Game.spawns['Spawn1'].energy > 200 && harvesters + upgraders + builders < 40) {
+    if (Game.spawns['Spawn1'].energy > 200 && harvesters.length + upgraders.length + builders.length < 40) {
         var myrole;
         if (harvesters.length <= 14) {
             myrole = "harvester";
