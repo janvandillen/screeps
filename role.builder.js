@@ -25,6 +25,8 @@ const roleBuilder = {
                 }
             }
 
+            creep.say(extensions.length);
+
         }
         else {
             let sources = creep.room.find(FIND_SOURCES);
