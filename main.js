@@ -31,7 +31,7 @@ module.exports.loop = function () {
         Game.spawns.Spawn1.renewCreep(Game.creeps.Owen);
     }
 
-    roleUpgrader.run(Game.creeps.Gianna);
+    //roleUpgrader.run(Game.creeps.Gianna);
     //roleUpgrader.run(Game.creeps.Riley);
     //roleUpgrader.run(Game.creeps.Bella);
 
@@ -42,6 +42,10 @@ module.exports.loop = function () {
     const upgraders = _.filter(Game.creeps, function (creep) {
         return creep.memory.role === 'upgrader';
     });
+
+    for (let name in upgraders) {
+        roleUpgrader.run(Game.creeps[name]);
+    }
 
 
 
