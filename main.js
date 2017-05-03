@@ -47,6 +47,7 @@ module.exports.loop = function () {
 
     for (let name in upgraders) {
         //roleUpgrader.run(Game.creeps[name]);
+        console.log(name);
     }
 
 
