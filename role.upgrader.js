@@ -1,4 +1,4 @@
-var roleUpgrader = {
+const roleUpgrader = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
@@ -18,9 +18,8 @@ var roleUpgrader = {
             }
         }
         else {
-            var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+            if (creep.harvest(Game.getObjectById('58dbc4a48283ff5308a3f586')) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(Game.getObjectById('58dbc4a48283ff5308a3f586'), {visualizePathStyle: {stroke: '#ffaa00'}});
             }
         }
     }
