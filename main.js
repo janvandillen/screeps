@@ -31,7 +31,7 @@ module.exports.loop = function () {
         Game.spawns.Spawn1.renewCreep(Game.creeps.Owen);
     }
 
-    //roleUpgrader.run(Game.creeps.Blake);
+    roleUpgrader.run(Game.creeps.Gianna);
     //roleUpgrader.run(Game.creeps.Riley);
     //roleUpgrader.run(Game.creeps.Bella);
 
