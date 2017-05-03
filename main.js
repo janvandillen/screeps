@@ -9,7 +9,7 @@ module.exports.loop = function () {
         Game.creeps.Zoe.transfer(Game.spawns.Spawn1, RESOURCE_ENERGY);
         console.log('Test')
     }
-
+    console.log('Test2')
 
 };
 
