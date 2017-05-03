@@ -19,6 +19,15 @@ module.exports.loop = function () {
         }
     }
 
+    if (Game.creeps.Zoe.ticksToLive < 500) {
+        Game.spawns.Spawn1.renewCreep(Game.creeps.Zoe);
+    }
+
+    if (Game.creeps.Owen.ticksToLive < 500) {
+        Game.spawns.Spawn1.renewCreep(Game.creeps.Owen);
+    }
+
+
 
 };
 
