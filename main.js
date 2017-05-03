@@ -43,6 +43,8 @@ module.exports.loop = function () {
         return creep.memory.role === 'upgrader';
     });
 
+    console.log(upgraders.length);
+
     for (let name in upgraders) {
         roleUpgrader.run(Game.creeps[name]);
     }
