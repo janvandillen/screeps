@@ -31,6 +31,7 @@ module.exports.loop = function () {
 
     roleUpgrader.run(Game.creeps.Blake);
     roleUpgrader.run(Game.creeps.Riley);
+    roleUpgrader.run(Game.creeps.Bella);
 
 
 
