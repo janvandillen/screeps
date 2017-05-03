@@ -7,6 +7,7 @@ module.exports.loop = function () {
         Game.creeps.Zoe.say('Hi');
     } else {
         Game.creeps.Zoe.transfer(Game.spawns.Spawn1, RESOURCE_ENERGY);
+        console.log('Test')
     }
 
 
