@@ -36,7 +36,8 @@ module.exports.loop = function () {
     //roleUpgrader.run(Game.creeps.Bella);
 
     if (spawn.energy === 300 && _.size(Game.creeps) < 12) {
-        spawn.createCreep(Game.spawns.Spawn1.createCreep([WORK, CARRY, MOVE, MOVE]), undefined, {role: 'upgrader'});
+        let newName = spawn.createCreep(Game.spawns.Spawn1.createCreep([WORK, CARRY, MOVE, MOVE]));
+        Game.creeps[newName].memory.role = 'upgrader';
     }
 
     const upgraders = _.filter(Game.creeps, function (creep) {
