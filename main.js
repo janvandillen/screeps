@@ -27,6 +27,16 @@ module.exports.loop = function () {
         Game.spawns.Spawn1.renewCreep(Game.creeps.Owen);
     }
 
+    if (Game.creeps.Blake.carry.energy < Game.creeps.Blake.carryCapacity) {
+        if (Game.creeps.Blake.harvest(Game.getObjectById('58dbc4a48283ff5308a3f586')) === ERR_NOT_IN_RANGE) {
+            Game.creeps.Blake.moveTo(13, 8);
+        }
+
+    } else {
+        if (Game.creeps.Blake.transfer(Game.getObjectById('58dbc4a48283ff5308a3f587'), RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+            Game.creeps.Blake.moveTo(44, 9);
+        }
+    }
 
 
 };
