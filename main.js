@@ -1,6 +1,14 @@
 const roleUpgrader = require('role.upgrader');
 
 module.exports.loop = function () {
+
+    for (let name in Memory.creeps) {
+        if (!Game.creeps[name]) {
+            delete Memory.creeps[name];
+            console.log('Clearing non-existing creep memory:', name)
+        }
+    }
+
     const spawn = Game.spawns.Spawn1;
 
     if (Game.spawns.Spawn1.energy < 300) {
@@ -40,27 +48,12 @@ module.exports.loop = function () {
         Game.creeps[newName].memory.role = 'upgrader';
     }
 
-    const upgraders = _.filter(Game.creeps, function (creep) {
-        return creep.memory.role === 'upgrader';
-    });
-
-    console.log(upgraders.length);
-
-    for (let name in upgraders) {
-        //roleUpgrader.run(Game.creeps[name]);
-        console.log(name);
-    }
-
     for (let name in Game.creeps) {
         let creep = Game.creeps[name];
         if (creep.memory.role === 'upgrader') {
             roleUpgrader.run(creep);
         }
     }
-
-
-
-
 
 };
 
