@@ -3,10 +3,10 @@ const roleUpgrader = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
-        if (creep.carry.energy === 0) {
+        if (creep.carry.energy === 0 && creep.memory.work !== 'harvest') {
             creep.memory.work = 'harvest';
             creep.say('harvest');
-        } else if (creep.carry.energy === creep.carryCapacity) {
+        } else if (creep.carry.energy === creep.carryCapacity && creep.memory.work === 'harvest') {
 
             if (creep.room.controller.ticksToDowngrade < 2000) {
                 creep.memory.work = 'upgrade';
@@ -66,6 +66,7 @@ function Transfer(creep) {
         if (t.energy < t.energyCapacity) {
             if (creep.transfer(t, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(t, {visualizePathStyle: {stroke: '#ffffff'}});
+                creep.say('Hi');
             }
             break;
         }
