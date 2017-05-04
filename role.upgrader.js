@@ -63,6 +63,7 @@ function Build(creep) {
 function Transfer(creep) {
     const transfers = creep.room.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_EXTENSION}});
     for (let t in transfers) {
+        creep.say('Ho');
         if (t.energy < t.energyCapacity) {
             if (creep.transfer(t, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(t, {visualizePathStyle: {stroke: '#ffffff'}});
@@ -70,6 +71,7 @@ function Transfer(creep) {
             }
             break;
         }
+
     }
 }
 
