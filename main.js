@@ -43,7 +43,7 @@ module.exports.loop = function () {
     //roleUpgrader.run(Game.creeps.Riley);
     //roleUpgrader.run(Game.creeps.Bella);
 
-    if (spawn.energy === 300 && _.size(Game.creeps) < 12) {
+    if (spawn.energy === 300 && _.size(Game.creeps) < 8) {
         let newName = spawn.createCreep(Game.spawns.Spawn1.createCreep([WORK, CARRY, MOVE, MOVE]));
         Game.creeps[newName].memory.role = 'upgrader';
     }
