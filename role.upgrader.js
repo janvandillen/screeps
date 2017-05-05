@@ -62,17 +62,23 @@ function Build(creep) {
 
 function Transfer(creep) {
     const transfers = creep.room.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_EXTENSION}});
-    for (let t in transfers) {
-        if (t.energy < t.energyCapacity) {
-            creep.say('Ho');
-            if (creep.transfer(t, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(t, {visualizePathStyle: {stroke: '#ffffff'}});
-                creep.say('Hi');
-            }
-            break;
+    if(transfers.length > 0) {
+        if (creep.transfer(targets[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+            creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
         }
-
     }
+
+
+//    for (let t in transfers) {
+//        if (t.energy < t.energyCapacity) {
+//            creep.say('Ho');
+//            if (creep.transfer(t, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+//                creep.moveTo(t, {visualizePathStyle: {stroke: '#ffffff'}});
+//                creep.say('Hi');
+//            }
+//            break;
+//        }
+//    }
 }
 
 module.exports = roleUpgrader;
