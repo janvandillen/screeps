@@ -1,1 +1,7 @@
+#folders
 .vscode
+node_modules
+ScreepsAutocomplete-master
+
+#files
+package-lock.json
