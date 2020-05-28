@@ -29,7 +29,7 @@ module.exports.loop = function () {
         }
         if (creep.memory.working == true) {
             if (creep.transfer(Game.getObjectById(creep.memory.target.id), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.memory.target);
+                creep.moveTo(Game.getObjectById(creep.memory.target.id));
             }
         } else {
             var source = creep.pos.findClosestByPath(FIND_SOURCES);
