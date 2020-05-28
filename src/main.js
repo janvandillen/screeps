@@ -3,14 +3,23 @@ module.exports.loop = function () {
     var spawn = Game.spawns.Amsterdam;
     var target
 
+    for (let name in Memory.creeps) {
+        if (Game.creeps[name] == undefined) {
+            delete Memory.creeps[name]
+        }
+    }
+
     if (spawn.energy == spawn.energyCapacity) {
         target = spawn.room.controller
     } else {
         target = spawn
     }
 
-    if (Object.keys(Game.creeps).length < 5) {
-        spawn.createCreep([WORK, CARRY, MOVE, MOVE], undefined, {working: false, target: target})
+    if (Object.keys(Game.creeps).length < 15) {
+        spawn.createCreep([WORK, CARRY, WORK, MOVE], undefined, {
+            working: false,
+            target: target
+        })
     }
 
     for (let name in Game.creeps) {
