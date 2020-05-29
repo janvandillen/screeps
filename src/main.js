@@ -1,7 +1,9 @@
+var myCreep = require('creep')
+var conductor = require('conductor')
+
 module.exports.loop = function () {
 
     var spawn = Game.spawns.Amsterdam;
-    var target
 
     for (let name in Memory.creeps) {
         if (Game.creeps[name] == undefined) {
@@ -9,42 +11,14 @@ module.exports.loop = function () {
         }
     }
 
-    if (spawn.energy == spawn.energyCapacity) {
-        target = spawn.room.controller
-    } else {
-        target = spawn
-    }
-
     if (Object.keys(Game.creeps).length < 15) {
         spawn.createCreep([WORK, CARRY, WORK, MOVE], undefined, {
             working: false,
-            target: target
+            target: conductor.getTarget(spawn.pos)
         })
     }
 
     for (let name in Game.creeps) {
-
-        var creep = Game.creeps[name];
-
-        if (spawn.energy == spawn.energyCapacity) {
-            creep.memory.target = target
-        }
-
-        if (creep.memory.working == true && creep.carry.energy == 0) {
-            creep.memory.working = false
-        } else if (creep.memory.working == false && creep.carry.energy == creep.carryCapacity) {
-            creep.memory.target = target
-            creep.memory.working = true
-        }
-        if (creep.memory.working == true) {
-            if (creep.transfer(Game.getObjectById(creep.memory.target.id), RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(Game.getObjectById(creep.memory.target.id));
-            }
-        } else {
-            var source = creep.pos.findClosestByPath(FIND_SOURCES);
-            if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(source);
-            }
-        }
+        myCreep.run(Game.creeps[name])
     }
 }
