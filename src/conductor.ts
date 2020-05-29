@@ -1,8 +1,6 @@
 module.exports = {
-
-    //@param {Room} room
     getTarget: function (pos) {
-        room = Game.rooms[pos.roomName]
+        let room = Game.rooms[pos.roomName]
         if (room.energyAvailable != room.energyCapacityAvailable) {
             return {
                 type: "SPAWN",
@@ -17,7 +15,7 @@ module.exports = {
             }
         }
 
-        items = room.find(FIND_CONSTRUCTION_SITES)
+        let items = room.find(FIND_CONSTRUCTION_SITES)
         if (items.length > 0) {
             var item = items[Math.floor(Math.random() * items.length)];
             return {
