@@ -1,7 +1,10 @@
 {
     "compilerOptions": {
-        "target": "ESNext",
-        "outDir": "JS"
+        "target": "ES2017",
+        "outDir": "JS",
+        "moduleResolution": "Node",
+        "module": "CommonJS",
+        "lib": ["ESNext"]
     },
     "include": ["src/**/*"]
 }

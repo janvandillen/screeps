@@ -11,7 +11,7 @@ module.exports.loop = function () {
         }
     }
 
-    if (Object.keys(Game.creeps).length < 15) {
+    if (Object.keys(Game.creeps).length < 10) {
         spawn.createCreep([WORK, CARRY, WORK, MOVE], undefined, {
             working: false,
             target: conductor.getTarget(spawn.pos)
